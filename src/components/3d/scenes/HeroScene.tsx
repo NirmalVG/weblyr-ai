@@ -24,7 +24,6 @@ export function HeroScene(): ReactNode {
   }
 
   const particleCount = performance === 'high' ? 5000 : 2000;
-  const cubeCount = performance === 'high' ? 500 : 200;
 
   return (
     <div className="absolute inset-0">
@@ -37,9 +36,6 @@ export function HeroScene(): ReactNode {
 
         {/* Background Icosahedron */}
         <BackgroundIcosahedron />
-
-        {/* Fragment Cubes */}
-        <FragmentCubes count={cubeCount} />
 
         {/* Particle Field */}
         <ParticleField count={particleCount} spread={8} color="#00d4ff" size={0.02} speed={0.3} />
@@ -102,15 +98,11 @@ function FragmentCubes({ count }: { count: number }): ReactNode {
 
     for (let i = 0; i < count; i++) {
       const idx = i * 3;
-      dummy.position.set(
-        positions.pos[idx],
-        positions.pos[idx + 1],
-        positions.pos[idx + 2]
-      );
+      dummy.position.set(positions.pos[idx], positions.pos[idx + 1], positions.pos[idx + 2]);
       dummy.rotation.set(
         positions.rot[idx] + t * positions.rot[idx + 2],
         positions.rot[idx + 1] + t * positions.rot[idx + 2] * 0.5,
-        0
+        0,
       );
       dummy.updateMatrix();
       meshRef.current.setMatrixAt(i, dummy.matrix);
