@@ -13,7 +13,7 @@ import { staggerContainer, fadeInUp } from '@/lib/animations';
 
 const ProductScene = dynamic(
   () => import('@/components/3d/scenes/ProductScene').then((m) => ({ default: m.ProductScene })),
-  { ssr: false, loading: () => <div className="w-full h-48 bg-space-light rounded-lg" /> }
+  { ssr: false, loading: () => <div className="w-full h-48 bg-space-light rounded-lg" /> },
 );
 
 /* ============================================================
@@ -29,7 +29,8 @@ export function ProductShowcase(): ReactNode {
             What We&apos;ve Built
           </h2>
           <p className="text-text-secondary max-w-lg mx-auto">
-            Products and platforms that showcase the intersection of AI, design, and engineering excellence.
+            Products and platforms that showcase the intersection of AI, design, and engineering
+            excellence.
           </p>
         </div>
 
@@ -69,20 +70,21 @@ function ProductCard({ product }: ProductCardProps): ReactNode {
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
-  const tagVariant = product.accentColor === '#c46b62'
-    ? 'terracotta' as const
-    : product.accentColor === '#8b5cf6'
-    ? 'purple' as const
-    : product.accentColor === '#f59e0b'
-    ? 'gold' as const
-    : 'cyan' as const;
+  const tagVariant =
+    product.accentColor === '#c46b62'
+      ? ('terracotta' as const)
+      : product.accentColor === '#8b5cf6'
+        ? ('purple' as const)
+        : product.accentColor === '#f59e0b'
+          ? ('gold' as const)
+          : ('cyan' as const);
 
   return (
     <div ref={cardRef}>
@@ -107,29 +109,38 @@ function ProductCard({ product }: ProductCardProps): ReactNode {
 
         {/* Content */}
         <div className="flex-1 flex flex-col">
-          <h3 className="text-xl font-semibold text-text-primary mb-1">
-            {product.name}
-          </h3>
-          <p className="text-sm text-text-secondary mb-4">
-            {product.tagline}
-          </p>
+          <h3 className="text-xl font-semibold text-text-primary mb-1">{product.name}</h3>
+          <p className="text-sm text-text-secondary mb-4">{product.tagline}</p>
 
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mb-5">
             {product.tags.map((tag) => (
-              <Tag key={tag} variant={tagVariant}>{tag}</Tag>
+              <Tag key={tag} variant={tagVariant}>
+                {tag}
+              </Tag>
             ))}
           </div>
 
           {/* Link */}
           <Link
             href={`/products/${product.slug}`}
-            className="mt-auto inline-flex items-center gap-1 text-sm font-medium transition-colors duration-300 hover:gap-2"
-            style={{ color: product.accentColor }}
+            className="mt-auto inline-flex items-center gap-1 text-sm font-medium transition-colors duration-300 hover:gap-2 [color:var(--link-color)]"
+            style={{ '--link-color': product.accentColor } as React.CSSProperties}
           >
             Learn More
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
             </svg>
           </Link>
         </div>

@@ -1,18 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import dynamic from 'next/dynamic';
 import { Container } from '@/components/layout/Container';
 import { SectionWrapper } from '@/components/layout/SectionWrapper';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { Tag } from '@/components/ui/Tag';
 import { Button } from '@/components/ui/Button';
 import { JsonLd, productSchema } from '@/components/JsonLd';
+import { ProductSceneClient } from '@/components/3d/ProductSceneClient';
 import { PRODUCTS, SITE_CONFIG } from '@/lib/constants';
-
-const ProductScene = dynamic(
-  () => import('@/components/3d/scenes/ProductScene').then((m) => ({ default: m.ProductScene })),
-  { ssr: false, loading: () => <div className="w-full h-full bg-space-light rounded-lg" /> }
-);
 
 /* ── Static Params ──────────────────────────────────────────── */
 
@@ -51,13 +46,14 @@ export default async function ProductDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  const tagVariant = product.accentColor === '#c46b62'
-    ? 'terracotta' as const
-    : product.accentColor === '#8b5cf6'
-    ? 'purple' as const
-    : product.accentColor === '#f59e0b'
-    ? 'gold' as const
-    : 'cyan' as const;
+  const tagVariant =
+    product.accentColor === '#c46b62'
+      ? ('terracotta' as const)
+      : product.accentColor === '#8b5cf6'
+        ? ('purple' as const)
+        : product.accentColor === '#f59e0b'
+          ? ('gold' as const)
+          : ('cyan' as const);
 
   return (
     <>
@@ -77,7 +73,9 @@ export default async function ProductDetailPage({ params }: PageProps) {
             <div className="lg:col-span-3 space-y-6">
               <div className="flex flex-wrap gap-2">
                 {product.tags.map((tag) => (
-                  <Tag key={tag} variant={tagVariant}>{tag}</Tag>
+                  <Tag key={tag} variant={tagVariant}>
+                    {tag}
+                  </Tag>
                 ))}
               </div>
 
@@ -85,13 +83,9 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 {product.name}
               </h1>
 
-              <p className="text-lg text-text-secondary leading-relaxed">
-                {product.tagline}
-              </p>
+              <p className="text-lg text-text-secondary leading-relaxed">{product.tagline}</p>
 
-              <p className="text-text-muted leading-relaxed">
-                {product.description}
-              </p>
+              <p className="text-text-muted leading-relaxed">{product.description}</p>
 
               <Button href="/contact" variant="primary" size="lg">
                 Request a Demo
@@ -100,7 +94,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
 
             {/* 3D Scene (2/5) */}
             <div className="lg:col-span-2 relative h-80 lg:h-[400px] rounded-2xl overflow-hidden bg-space-light">
-              <ProductScene
+              <ProductSceneClient
                 shape={product.shape}
                 color={product.accentColor}
                 className="absolute inset-0"
@@ -138,7 +132,9 @@ export default async function ProductDetailPage({ params }: PageProps) {
             </h2>
             <div className="flex flex-wrap items-center justify-center gap-3">
               {product.techStack.map((tech) => (
-                <Tag key={tech} variant="neutral">{tech}</Tag>
+                <Tag key={tech} variant="neutral">
+                  {tech}
+                </Tag>
               ))}
             </div>
           </Container>

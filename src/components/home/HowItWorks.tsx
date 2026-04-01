@@ -15,30 +15,66 @@ const STEPS = [
   {
     number: '01',
     title: 'Discover',
-    description: 'We dive deep into your vision, audience, and technical requirements. No assumptions — just understanding.',
+    description:
+      'We dive deep into your vision, audience, and technical requirements. No assumptions — just understanding.',
     icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+        />
       </svg>
     ),
   },
   {
     number: '02',
     title: 'Architect',
-    description: 'We design systems, not just screens. Every decision optimizes for performance, scalability, and delight.',
+    description:
+      'We design systems, not just screens. Every decision optimizes for performance, scalability, and delight.',
     icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3" />
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3"
+        />
       </svg>
     ),
   },
   {
     number: '03',
     title: 'Launch',
-    description: 'We ship production-ready code that\'s fast, accessible, and unforgettable. Then we iterate based on real data.',
+    description:
+      "We ship production-ready code that's fast, accessible, and unforgettable. Then we iterate based on real data.",
     icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+        />
       </svg>
     ),
   },
@@ -71,7 +107,10 @@ export function HowItWorks(): ReactNode {
             {!shouldReduce ? (
               <motion.svg className="w-full h-full" viewBox="0 0 100 2" preserveAspectRatio="none">
                 <motion.line
-                  x1="0" y1="1" x2="100" y2="1"
+                  x1="0"
+                  y1="1"
+                  x2="100"
+                  y2="1"
                   stroke="var(--color-cyan)"
                   strokeWidth="0.5"
                   strokeDasharray="4 4"
@@ -99,9 +138,7 @@ export function HowItWorks(): ReactNode {
                   </span>
                 </div>
 
-                <h3 className="text-lg font-semibold text-text-primary mb-2">
-                  {step.title}
-                </h3>
+                <h3 className="text-lg font-semibold text-text-primary mb-2">{step.title}</h3>
                 <p className="text-sm text-text-secondary leading-relaxed max-w-xs">
                   {step.description}
                 </p>

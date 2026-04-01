@@ -71,16 +71,17 @@ export function Testimonials(): ReactNode {
                 exit="hidden"
                 className="absolute inset-0"
               >
-                <GlassCard intensity="light" className="p-8 md:p-12 text-center h-full flex flex-col items-center justify-center">
+                <GlassCard
+                  intensity="light"
+                  className="p-8 md:p-12 text-center h-full flex flex-col items-center justify-center"
+                >
                   <blockquote>
                     <p className="text-lg md:text-xl text-text-primary font-serif italic leading-relaxed mb-8 max-w-2xl">
                       &ldquo;{testimonial.quote}&rdquo;
                     </p>
                   </blockquote>
                   <div>
-                    <p className="text-sm font-semibold text-text-primary">
-                      {testimonial.author}
-                    </p>
+                    <p className="text-sm font-semibold text-text-primary">{testimonial.author}</p>
                     <p className="text-xs text-text-muted mt-1">
                       {testimonial.role}, {testimonial.company}
                     </p>
@@ -98,8 +99,19 @@ export function Testimonials(): ReactNode {
               className="p-2 text-text-muted hover:text-cyan transition-colors"
               aria-label="Previous testimonial"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
             </button>
 
@@ -124,8 +136,19 @@ export function Testimonials(): ReactNode {
               className="p-2 text-text-muted hover:text-cyan transition-colors"
               aria-label="Next testimonial"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </button>
           </div>

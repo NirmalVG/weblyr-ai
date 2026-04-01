@@ -34,13 +34,7 @@ export function CursorGlow(): ReactNode {
   if (isMobile || shouldReduce) return null;
 
   return (
-    <motion.div
-      className="pointer-events-none fixed inset-0 z-40"
-      aria-hidden="true"
-      style={{
-        background: 'transparent',
-      }}
-    >
+    <motion.div className="pointer-events-none fixed inset-0 z-40" aria-hidden="true">
       <motion.div
         className="absolute w-[600px] h-[600px] rounded-full"
         style={{
@@ -48,8 +42,7 @@ export function CursorGlow(): ReactNode {
           y: springY,
           translateX: '-50%',
           translateY: '-50%',
-          background:
-            'radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 70%)',
         }}
       />
     </motion.div>

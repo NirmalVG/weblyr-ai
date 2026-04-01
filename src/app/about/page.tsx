@@ -1,27 +1,45 @@
 import type { Metadata } from 'next';
-import dynamic from 'next/dynamic';
 import { Container } from '@/components/layout/Container';
 import { SectionWrapper } from '@/components/layout/SectionWrapper';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { Button } from '@/components/ui/Button';
-
-const AboutScene = dynamic(
-  () => import('@/components/3d/scenes/AboutScene').then((m) => ({ default: m.AboutScene })),
-  { ssr: false, loading: () => <div className="absolute inset-0 bg-space" /> }
-);
+import { AboutSceneClient } from '@/components/3d/AboutSceneClient';
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Meet Weblyr AI — a premium web studio building AI-powered digital experiences from Kerala, India. Our mission, values, and approach.',
+  description:
+    'Meet Weblyr AI — a premium web studio building AI-powered digital experiences from Kerala, India. Our mission, values, and approach.',
 };
 
 const VALUES = [
-  { title: 'Intelligence', description: 'We embed AI thoughtfully — where it genuinely improves the experience, not as a checkbox.' },
-  { title: 'Craft', description: 'Every line of code is reviewed, every pixel is deliberate. We ship work we\'re proud of.' },
-  { title: 'Beauty', description: 'Interfaces should inspire. We create visual experiences that make people pause and appreciate.' },
-  { title: 'Speed', description: 'Performance isn\'t an afterthought. Our sites load fast and run smooth on every device.' },
-  { title: 'Transparency', description: 'No black boxes. Our clients understand every decision we make and why.' },
-  { title: 'Impact', description: 'We measure success by outcomes — engagement, conversion, and lasting impression.' },
+  {
+    title: 'Intelligence',
+    description:
+      'We embed AI thoughtfully — where it genuinely improves the experience, not as a checkbox.',
+  },
+  {
+    title: 'Craft',
+    description:
+      "Every line of code is reviewed, every pixel is deliberate. We ship work we're proud of.",
+  },
+  {
+    title: 'Beauty',
+    description:
+      'Interfaces should inspire. We create visual experiences that make people pause and appreciate.',
+  },
+  {
+    title: 'Speed',
+    description:
+      "Performance isn't an afterthought. Our sites load fast and run smooth on every device.",
+  },
+  {
+    title: 'Transparency',
+    description: 'No black boxes. Our clients understand every decision we make and why.',
+  },
+  {
+    title: 'Impact',
+    description: 'We measure success by outcomes — engagement, conversion, and lasting impression.',
+  },
 ];
 
 export default function AboutPage() {
@@ -29,19 +47,21 @@ export default function AboutPage() {
     <div className="relative">
       {/* 3D Background */}
       <div className="fixed inset-0 -z-10">
-        <AboutScene />
+        <AboutSceneClient />
       </div>
 
       {/* Mission */}
       <section className="min-h-[70vh] flex items-center pt-32">
         <Container size="md" className="text-center">
-          <p className="text-sm text-cyan font-medium uppercase tracking-widest mb-6">Our Mission</p>
+          <p className="text-sm text-cyan font-medium uppercase tracking-widest mb-6">
+            Our Mission
+          </p>
           <h1 className="font-serif text-[length:var(--text-h1)] leading-[var(--leading-h1)] text-text-primary italic mb-8">
             We believe the web should be intelligent, beautiful, and alive.
           </h1>
           <p className="text-lg text-text-secondary max-w-xl mx-auto leading-relaxed">
-            Weblyr AI is a premium web studio that creates extraordinary digital experiences 
-            at the intersection of artificial intelligence, 3D immersion, and meticulous engineering.
+            Weblyr AI is a premium web studio that creates extraordinary digital experiences at the
+            intersection of artificial intelligence, 3D immersion, and meticulous engineering.
           </p>
         </Container>
       </section>
@@ -58,10 +78,10 @@ export default function AboutPage() {
                 <h2 className="text-xl font-semibold text-text-primary mb-1">Nirmal V G</h2>
                 <p className="text-sm text-cyan mb-4">Founder & Lead Engineer</p>
                 <p className="text-text-secondary leading-relaxed">
-                  Based in Kerala, India 🇮🇳 — Nirmal is a full-stack engineer and designer with 
-                  a passion for pushing the boundaries of what&apos;s possible on the web. He founded 
-                  Weblyr AI to bring together his love for artificial intelligence, immersive 3D 
-                  experiences, and production-grade engineering into a studio that creates work 
+                  Based in Kerala, India 🇮🇳 — Nirmal is a full-stack engineer and designer with a
+                  passion for pushing the boundaries of what&apos;s possible on the web. He founded
+                  Weblyr AI to bring together his love for artificial intelligence, immersive 3D
+                  experiences, and production-grade engineering into a studio that creates work
                   developers and designers actually admire.
                 </p>
               </div>
@@ -94,7 +114,8 @@ export default function AboutPage() {
             Let&apos;s Build Something Together
           </h2>
           <p className="text-text-secondary mb-8">
-            We&apos;re selective about the projects we take on — because every project gets our full attention.
+            We&apos;re selective about the projects we take on — because every project gets our full
+            attention.
           </p>
           <Button href="/contact" variant="primary" size="lg">
             Start a Conversation
