@@ -78,6 +78,123 @@ export const PRODUCTS: Product[] = [
     accentGlow: 'rgba(0, 212, 255, 0.15)',
     shape: 'sphere',
   },
+  {
+    id: 'sonar',
+    slug: 'sonar',
+    name: 'Sonar',
+    tagline: 'Gesture-driven 3D particle field powered by custom GLSL shaders',
+    description:
+      'Sonar is a browser-native interactive particle experience that renders up to 180,000 GPU-accelerated particles in a dynamic ambient dust field. Using MediaPipe hand tracking, users physically sculpt the field in real time — clenching to collapse particles into a gravitational cluster, opening to scatter them in a velocity-driven magic drift. Built with custom GLSL shaders, React Three Fiber, and a zero-dependency physics system, all at 60 FPS.',
+    features: [
+      {
+        icon: 'sparkles',
+        title: '180K Particle GLSL Renderer',
+        description:
+          'Custom vertex and fragment shaders drive up to 180,000 particles with additive blending, dual particle classes, and time-based sine/cosine drift fields — entirely on the GPU.',
+      },
+      {
+        icon: 'hand',
+        title: 'Gesture-Reactive Physics',
+        description:
+          'MediaPipe hand tracking maps palm position to 3D scene coordinates. FIST triggers gravitational collapse; OPEN triggers velocity-amplified scatter with magic drift vectors.',
+      },
+      {
+        icon: 'zap',
+        title: 'Zero-Framework Physics',
+        description:
+          'Smooth hand velocity, magic drift accumulation, and lerped gesture transitions are computed every frame using raw Three.js math — no physics engine required.',
+      },
+      {
+        icon: 'sliders',
+        title: 'Live Control Surface',
+        description:
+          'A dual-surface HUD with a mobile bottom dock and desktop sidebar lets you tune particle count, field scale, rotation speed, interaction strength, and color scheme in real time.',
+      },
+      {
+        icon: 'cube',
+        title: 'Four Color Schemes',
+        description:
+          'Switch between COSMIC (blue-white), SOLAR (orange-gold), AURORA (teal-mint), and MONO (grayscale) — each remapping the particle gradient via live shader uniforms.',
+      },
+      {
+        icon: 'smartphone',
+        title: 'PWA + Capture Tools',
+        description:
+          'Installable as a PWA on any device. Includes one-click PNG frame capture and 60fps WebM canvas recording for sharing.',
+      },
+    ],
+    techStack: [
+      'Next.js',
+      'React Three Fiber',
+      'Three.js',
+      'GLSL',
+      'MediaPipe',
+      'Zustand',
+      'Tailwind CSS',
+    ],
+    tags: ['3D', 'AI', 'WebGL', 'PWA'],
+    accentColor: '#00d8ff',
+    accentGlow: 'rgba(0, 216, 255, 0.15)',
+    shape: 'sphere',
+  },
+  {
+    id: 'corvus-hud',
+    slug: 'corvus-hud',
+    name: 'Corvus HUD',
+    tagline: 'Augmented reality tactical heads-up display with AI voice assistant',
+    description:
+      'Corvus HUD is a browser-native AR heads-up display that layers a real-time tactical UI over your live camera feed. Powered by TensorFlow.js COCO-SSD, it tracks and classifies objects in the scene with threat assessment, distance estimation, and approach vectors — all rendered on a transparent canvas overlay. A push-to-talk AI assistant (CORVUS) lets you query your environment by voice, with full conversation history and Web Speech synthesis. Zero install required.',
+    features: [
+      {
+        icon: 'scan',
+        title: 'Real-Time Object Detection',
+        description:
+          'TensorFlow.js COCO-SSD with an adaptive detection loop tracks objects at up to 15 FPS, with IoU-based object persistence, confidence smoothing, and low-power throttling.',
+      },
+      {
+        icon: 'shield',
+        title: 'Threat Assessment Engine',
+        description:
+          'Each tracked object is assigned a threat level (NONE / LOW / MEDIUM / HIGH) based on class, estimated distance, approach state, and closing speed in m/s.',
+      },
+      {
+        icon: 'crosshair',
+        title: 'Tactical HUD Overlay',
+        description:
+          'A full sci-fi HUD renders over the camera feed — rotating reticle, GPS panel, FPS counter, battery readout, compass heading, and per-object stats panels with confidence bars.',
+      },
+      {
+        icon: 'mic',
+        title: 'AI Voice Assistant',
+        description:
+          'Push-to-talk voice interface powered by the Web Speech API. CORVUS processes open-ended queries via AI with scene context, conversation history, and long-term memory — all spoken back via Web Speech Synthesis.',
+      },
+      {
+        icon: 'activity',
+        title: 'Sensor Fusion',
+        description:
+          'GPS coordinates, device compass heading, and battery state are pulled from native browser APIs and rendered live in the HUD with no external API calls.',
+      },
+      {
+        icon: 'smartphone',
+        title: 'PWA + Boot Sequence',
+        description:
+          'Installable as a PWA with a four-stage cinematic boot animation (grid → panels → reticle → online), glitch effects on detection events, and a scanline overlay aesthetic.',
+      },
+    ],
+    techStack: [
+      'Next.js',
+      'TensorFlow.js',
+      'Web Speech API',
+      'Zustand',
+      'Tailwind CSS',
+      'Canvas API',
+    ],
+    tags: ['AI', 'AR', 'PWA'],
+    accentColor: '#00d4ff',
+    accentGlow: 'rgba(0, 212, 255, 0.15)',
+    shape: 'sphere',
+  },
 ];
 
 /* ── Testimonials ───────────────────────────────────────────── */
